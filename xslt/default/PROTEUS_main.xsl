@@ -25,6 +25,9 @@
 <!-- Update  : 2025/10/23 (Amador Durán)                      -->
 <!-- Urgency added to the list of property labels.            -->
 <!-- ======================================================== -->
+<!-- Update  : 2025/10/28 (Amador Durán)                      -->
+<!-- Synonyms added to the list of property labels.           -->
+<!-- ======================================================== -->
 
 <!-- ======================================================== -->
 <!-- exclude-result-prefixes="proteus" must be set in all     -->
@@ -82,6 +85,7 @@
         <label key="sources"><xsl:value-of select="$proteus:lang_sources"/></label>
         <label key="stability"><xsl:value-of select="$proteus:lang_stability"/></label>
         <label key="status"><xsl:value-of select="$proteus:lang_status"/></label>
+        <label key="status"><xsl:value-of select="$proteus:lang_synonyms"/></label>
         <label key="time"><xsl:value-of select="$proteus:lang_time"/></label>
         <label key="trace-type"><xsl:value-of select="$proteus:lang_trace_type"/></label>
         <label key="urgency"><xsl:value-of select="$proteus:lang_urgency"/></label>

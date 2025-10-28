@@ -51,10 +51,10 @@
 
                 <!-- Generate glossary item description -->
                 <xsl:variable name="description" select="properties/*[@name='description']"/>
-                <xsl:variable name="nonempty_content" select="string-length(normalize-space($description)) > 0"/>
+                <xsl:variable name="empty_description" select="string-length(normalize-space($description)) = 0"/>
 
                 <xsl:choose>
-                    <xsl:when test="not($nonempty_content)">
+                    <xsl:when test="$empty_description)">
                         <span class="tbd"><xsl:value-of select="$proteus:lang_TBD_expanded"/></span>
                     </xsl:when>
                     <xsl:otherwise>
@@ -63,6 +63,17 @@
                         </xsl:call-template>
                     </xsl:otherwise>
                 </xsl:choose>
+
+                <!-- Generate synonym list -->
+                <xsl:variable name="synonyms" select="properties/*[@name='synonyms']"/>
+                <xsl:variable name="nonempty_synonyms" select="string-length(normalize-space($synonyms)) > 0"/>
+
+                <xsl:if test="$nonempty_synonyms">
+                    <xsl:value-of select="$proteus:lang_synonyms"/>
+                    <xsl:text>: </xsl:text>
+                    <xsl:value-of select="$synonyms"/>
+                    <xsl:text>.</xsl:text>
+                </xsl:if>
 
                 <!-- Get file name with extension (optional, it could be empty) -->
                 <xsl:variable name="image_path" select="properties/*[@name='image']"/>
