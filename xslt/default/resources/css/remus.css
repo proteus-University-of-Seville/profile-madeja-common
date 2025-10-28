@@ -87,6 +87,10 @@ body>div {
   }
   */
 
+span.synonyms {
+  font-style: italic; 
+}
+
 span.tbd {
   color: red;
   font-weight: bold;

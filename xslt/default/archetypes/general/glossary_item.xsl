@@ -54,7 +54,7 @@
                 <xsl:variable name="empty_description" select="string-length(normalize-space($description)) = 0"/>
 
                 <xsl:choose>
-                    <xsl:when test="$empty_description)">
+                    <xsl:when test="$empty_description">
                         <span class="tbd"><xsl:value-of select="$proteus:lang_TBD_expanded"/></span>
                     </xsl:when>
                     <xsl:otherwise>
@@ -69,10 +69,13 @@
                 <xsl:variable name="nonempty_synonyms" select="string-length(normalize-space($synonyms)) > 0"/>
 
                 <xsl:if test="$nonempty_synonyms">
-                    <xsl:value-of select="$proteus:lang_synonyms"/>
-                    <xsl:text>: </xsl:text>
-                    <xsl:value-of select="$synonyms"/>
-                    <xsl:text>.</xsl:text>
+                    <span class="synonyms">
+                        <xsl:text> </xsl:text>
+                        <xsl:value-of select="$proteus:lang_synonyms"/>
+                        <xsl:text>: </xsl:text>
+                        <xsl:value-of select="$synonyms"/>
+                        <xsl:text>.</xsl:text>
+                    </span>
                 </xsl:if>
 
                 <!-- Get file name with extension (optional, it could be empty) -->
